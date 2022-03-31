@@ -7,8 +7,6 @@ on:
 
 jobs:
   gtDemo_Image:
-    env:
-      GT_DEMO_VERSION: "${{ github.ref_name }}"
     uses: feenkcom/gtoolkit-custom-app/.github/workflows/app-image.yml@main
     with: 
       app_name: 'GtDemo'

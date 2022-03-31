@@ -5,7 +5,7 @@ Author fullName: 'GlamorousToolkit'.
 version := Smalltalk os environment
 	           at: 'GT_DEMO_VERSION'
 	           ifPresent: [ :aVersion | aVersion ]
-	           ifAbsent: [ self error: 'Application version is not defined' ].
+	           ifAbsent: [ 'main' ].
 
 EpMonitor current disable.
 [
