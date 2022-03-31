@@ -11,8 +11,8 @@ Class {
 GtDemoReleaseExporter >> buildReleaseWorkflow [
 
 	^ GtRlReleaserExportWorkflow
-		  forBaseline: BaselineOfSociator
-		  fromRepository: 'github://feenkcom/gtoolkit-demo-app/src'
+		  forBaseline: BaselineOfGtDemoApp
+		  fromRepository: 'github://feenkcom/gtoolkit-demo-app:main/src'
 		  withConfiguration: self releaseConfiguration
 ]
 
