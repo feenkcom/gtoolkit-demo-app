@@ -1,0 +1,18 @@
+name: Build Demo App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  gtDemo_Image:
+    uses: feenkcom/gtoolkit-custom-app/.github/workflows/app-image.yml@main
+    with: 
+      app_name: 'GtDemo'
+      pharo_load_script_path: 'scripts/st/load-project.st'
+      pharo_test_packages: 'GtDemoApp'
+      pharo_release_line_handler: releaseDemoApp
+      pharo_release_version_line_handler: printDemoReleaseVersion
+    secrets:
+      gt_releaser_ssh_key: ${{ secrets.FEENK_RELEASER_SSH_PRIVATE_KEY }}
