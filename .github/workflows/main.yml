@@ -12,7 +12,7 @@ jobs:
       app_name: 'GtDemo'
       pharo_load_script_path: 'scripts/st/load-project.st'
       pharo_test_packages: 'GtDemoApp'
-      pharo_release_line_handler: releaseDemoApp
-      pharo_release_version_line_handler: printDemoReleaseVersion
+      pharo_release_line_handler: 'releaseDemoApp'
+      pharo_release_version_line_handler: 'printDemoAppVersion'
     secrets:
       gt_releaser_ssh_key: ${{ secrets.FEENK_RELEASER_SSH_PRIVATE_KEY }}
