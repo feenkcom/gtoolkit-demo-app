@@ -8,6 +8,7 @@ version := Smalltalk os environment
 	           ifAbsent: [ 'main' ].
 
 EpMonitor current disable.
+NonInteractiveTranscript stdout install.
 [
     Metacello new
     onWarningLog;
@@ -15,7 +16,9 @@ EpMonitor current disable.
     onConflictUseIncoming;
     repository: 'github://feenkcom/gtoolkit-demo-app:' , version , '/src';
     load.
-] ensure: [ EpMonitor current enable ].
+] ensure: [ 
+    GtTranscript installDefault.
+    EpMonitor current enable ].
 
 GtImageSetup cleanUpImageAfterLoad.
 World closeAllWindowsDiscardingChanges.
