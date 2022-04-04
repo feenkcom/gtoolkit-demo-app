@@ -14,5 +14,7 @@ jobs:
       pharo_test_packages: 'GtDemoApp'
       pharo_release_line_handler: 'releaseDemoApp'
       pharo_release_version_line_handler: 'printDemoAppVersion'
+      git_user_name: 'Juraj Kubelka'
+      git_user_email: 'juraj.kubelka@feenk.com'
     secrets:
       gt_releaser_ssh_key: ${{ secrets.FEENK_RELEASER_SSH_PRIVATE_KEY }}
