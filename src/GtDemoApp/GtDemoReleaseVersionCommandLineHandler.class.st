@@ -19,7 +19,7 @@ GtDemoReleaseVersionCommandLineHandler >> activate [
 	
 	TranscriptLogger runDuring: [ 
 		| releaseExporter workflow |
-		releaseExporter := SoReleaseExporter new.
+		releaseExporter := GtDemoReleaseExporter new.
 		
 		self arguments isEmpty ifFalse:[ 
 			| semanticVersion | 
