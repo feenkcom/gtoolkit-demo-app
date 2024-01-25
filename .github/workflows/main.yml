@@ -55,4 +55,4 @@ jobs:
           cd ..
           pwd
           ./scripts/github/create-github-release.sh github_api_token=${{ secrets.GITHUB_TOKEN }} owner=feenkcom repo=gtoolkit-demo-app tag=${{ needs.gtDemo_Image.outputs.release_version }}
-          ./scripts/github/upload-github-release.sh github_api_token=${{ secrets.GITHUB_TOKEN }} owner=feenkcom repo=gtoolkit-demo-app tag=${{ needs.gtDemo_Image.outputs.release_version }} filename="${{ needs.gtDemo_Image.outputs.release_zip }}/${{ needs.gtDemo_Image.outputs.release_zip }}""
+          ./scripts/github/upload-github-release.sh github_api_token=${{ secrets.GITHUB_TOKEN }} owner=feenkcom repo=gtoolkit-demo-app tag=${{ needs.gtDemo_Image.outputs.release_version }} filename="${{ needs.gtDemo_Image.outputs.release_zip }}/${{ needs.gtDemo_Image.outputs.release_zip }}"
