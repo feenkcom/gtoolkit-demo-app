@@ -27,3 +27,6 @@ jobs:
     steps: 
       - name: Download All Artifacts
         uses: actions/download-artifact@v3
+      - name: Upload
+        run: |
+          ./scripts/github/create-github-release.sh github_api_token=$GITHUB_TOKEN owner=feenkcom repo=gtoolkit-demo-app tag=${{ needs.gtDemo_Image.outputs.release_version }}
