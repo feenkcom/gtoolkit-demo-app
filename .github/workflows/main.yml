@@ -20,11 +20,28 @@ jobs:
     secrets:
       gt_releaser_ssh_key: ${{ secrets.FEENK_RELEASER_SSH_PRIVATE_KEY }}
   
+
   release_gtDemo_Image:
     runs-on: ubuntu-20.04
     needs: 
       - gtDemo_Image
     steps: 
+      # We need the SSH key to load code from private repositories and/or run GT Releaser
+      - name: Add SSH key
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p /home/runner/.ssh
+          ssh-keyscan github.com >> /home/runner/.ssh/known_hosts
+          ssh-keyscan sftp.feenk.com >> /home/runner/.ssh/known_hosts
+          echo "${{ secrets.gt_releaser_ssh_key }}" > /home/runner/.ssh/github_actions
+          chmod 600 /home/runner/.ssh/github_actions
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null   
+          ssh-add /home/runner/.ssh/github_actions
+
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        
       - name: Download All Artifacts
         uses: actions/download-artifact@v3
       - name: Upload
