@@ -1,6 +1,7 @@
 name: Build Demo App
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -17,4 +18,4 @@ jobs:
       git_user_name: 'Juraj Kubelka'
       git_user_email: 'juraj.kubelka@feenk.com'
     secrets:
-      gt_releaser_ssh_key: ${{ secrets.FEENK_RELEASER_SSH_PRIVATE_KEY }}
+      gt_releaser_ssh_key: ${{ secrets.FEENK_RELEASER_SSH_PRIVATE_KEY_2 }}
