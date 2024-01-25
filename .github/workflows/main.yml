@@ -22,9 +22,8 @@ jobs:
   
   release_gtDemo_Image:
     runs-on: ubuntu-20.04
+    needs: 
+      - gtDemo_Image
     steps: 
       - name: Download All Artifacts
         uses: actions/download-artifact@v3
-        with:
-          artifacts: ${{ needs.gtDemo_Image.outputs.release_zip }}
-      
