@@ -19,12 +19,3 @@ jobs:
       git_user_email: 'juraj.kubelka@feenk.com'
     secrets:
       gt_releaser_ssh_key: ${{ secrets.FEENK_RELEASER_SSH_PRIVATE_KEY }}
-
-  Release_gtDemo_Image: 
-    uses: feenkcom/gtoolkit-custom-app/.github/workflows/release-artifacts.yml@main
-    needs: 
-      - gtDemo_Image
-    with:
-      artifacts: ${{ needs.gtDemo_Image.outputs.release_zip }} 
-    secrets:
-      release_token: ${{ secrets.GITHUB_TOKEN }}
