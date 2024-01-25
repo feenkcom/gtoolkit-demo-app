@@ -41,6 +41,8 @@ jobs:
 
       - name: Check out repository code
         uses: actions/checkout@v2
+        with:
+          name: ${{ needs.gtDemo_Image.outputs.release_zip }}
 
       - name: Download All Artifacts
         uses: actions/download-artifact@v3
