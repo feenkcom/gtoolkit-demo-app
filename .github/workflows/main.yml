@@ -19,3 +19,12 @@ jobs:
       git_user_email: 'juraj.kubelka@feenk.com'
     secrets:
       gt_releaser_ssh_key: ${{ secrets.FEENK_RELEASER_SSH_PRIVATE_KEY }}
+  
+  release_gtDemo_Image:
+    runs-on: ubuntu-20.04
+    steps: 
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          artifacts: ${{ needs.gtDemo_Image.outputs.release_zip }}
+      
